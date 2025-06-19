@@ -1023,8 +1023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf91c197bf222b4ebc9a70068c077b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingWeapon: {fileID: 11400000, guid: 2ef275eb250c44e4da0b5f867d1ee79a, type: 2}
   firePoint: {fileID: 862146850}
-  projectilePrefab: {fileID: 6216280215907127884, guid: 0c4ad57de6f46f14b977c4facd9b7aff, type: 3}
 --- !u!1 &1547137594
 GameObject:
   m_ObjectHideFlags: 0

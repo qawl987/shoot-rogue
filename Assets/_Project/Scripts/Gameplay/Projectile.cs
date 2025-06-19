@@ -7,9 +7,7 @@ namespace _Project.Scripts.Gameplay
         // --- 參數設定 ---
         [SerializeField] private float speed = 20f;
         [SerializeField] private float lifetime = 3f; // 子彈的存活時間（秒）
-        // TODO: 未來可以加入傷害值
-        // [SerializeField] private int damage = 10;
-
+        private int _damage; // 改為私有變數
         private Rigidbody2D _rb;
 
         private void Awake()
@@ -30,6 +28,10 @@ namespace _Project.Scripts.Gameplay
             Destroy(gameObject, lifetime);
         }
 
+        public void SetDamage(int newDamage)
+        {
+            _damage = newDamage;
+        }
         // --- 碰撞處理 ---
         // 因為我們在 Prefab 上設定 Collider 2D 為 Is Trigger，
         // 所以我們需要用 OnTriggerEnter2D 來偵測碰撞。
@@ -45,7 +47,7 @@ namespace _Project.Scripts.Gameplay
                 if (healthSystem != null)
                 {
                     // 如果對方有 HealthSystem，就對它造成傷害
-                    healthSystem.TakeDamage(10); // 暫時寫死傷害為 10
+                    healthSystem.TakeDamage(_damage); // 暫時寫死傷害為 10
                 }
             }
 
