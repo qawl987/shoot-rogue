@@ -37,12 +37,17 @@ namespace _Project.Scripts.Gameplay
         {
             // other 參數就是我們碰到的那個物件的 Collider。
 
-            // TODO: 在未來，我們會在這裡檢查碰到的是否為敵人。
-            // if (other.CompareTag("Enemy"))
-            // {
-            //     // 對敵人造成傷害
-            //     // other.GetComponent<EnemyHealth>().TakeDamage(damage);
-            // }
+            // 檢查碰到的是否為敵人
+            if (other.CompareTag("Enemy"))
+            {
+                // 嘗試從碰到的物件上獲取 HealthSystem 元件
+                HealthSystem healthSystem = other.GetComponent<HealthSystem>();
+                if (healthSystem != null)
+                {
+                    // 如果對方有 HealthSystem，就對它造成傷害
+                    healthSystem.TakeDamage(10); // 暫時寫死傷害為 10
+                }
+            }
 
             Debug.Log($"Projectile hit: {other.name}"); // 在 Console 印出碰到的物件名稱，方便除錯
 
